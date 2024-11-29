@@ -1,0 +1,5 @@
+.wrapper {
+    @media screen and (min-width: $on-large) {
+      max-width: calc(#{$content-width} * 1.4 - (#{$spacing-unit} * 2));
+    }
+  }
