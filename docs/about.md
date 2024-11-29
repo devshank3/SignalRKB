@@ -1,5 +1,7 @@
 ---
 layout: page
 title: About
-permalink: /About/
+permalink: /about/
 ---
+
+## About page 123

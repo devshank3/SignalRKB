@@ -4,8 +4,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   I will be posting about my projects, thoughts, and other things that I find interesting. Stay tuned!
 baseurl: "" # the subpath of your site, e.g. /blog
 locale: en_US
-url: "https://devshank3.github.io/SignalRKB/" # the base hostname & protocol for your site, e.g. http://example.com
-
+url: "https://devshank3.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/SignalRKB" # the subpath of your site, e.g. /blog
 
 author:
   name: Shankar Hariharan K
