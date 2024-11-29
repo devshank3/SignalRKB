@@ -1,7 +1,7 @@
 ---
 layout: page
-Title: What is SignalR ?
+title: What is SignalR ?
 permalink: /Intro/
 ---
 
-## Introduction
+## Introduction 3
