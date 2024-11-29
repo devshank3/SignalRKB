@@ -1,6 +1,6 @@
 ---
 layout: page
-Title: Index
+title: Index
 ---
 Hello !
 
