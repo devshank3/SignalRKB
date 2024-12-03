@@ -32,10 +32,7 @@ namespace BasicClientServer
 
             app.UseAuthorization();
 
-            app.UseEndpoints(configure =>
-            {
-                configure.MapHub<AccessorHub>("/accessorHub");
-            });
+            app.MapHub<AccessorHub>("/accessorHub");
 
             app.MapControllers();
 
