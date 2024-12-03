@@ -1,6 +1,6 @@
 ---
 layout: page
-title: What is SignalR ?
+title: What is SignalR Hub ?
 permalink: /Hubs/
 mermaid: true
 ---
