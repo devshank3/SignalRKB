@@ -18,7 +18,7 @@ graph TD
 ```
 ---
 
-**SignalR** is a library for building real-time web applications. It allows for two-way communication between clients (like web browsers) and servers, meaning that both can send and receive messages instantly. Here’s a simpler breakdown of SignalR:
+**SignalR** or more precisely ASP.NET SignalR is a library for building real-time web applications. It allows for two-way communication between clients (web browsers, desktop - mobile) and servers, meaning that both can send and receive messages instantly. Here’s a simpler breakdown of SignalR:
 
 **Real-time Communication**: Imagine you are in a chat room. When someone sends a message, everyone in the room sees it immediately. SignalR makes this possible for web applications.
 
@@ -29,3 +29,10 @@ graph TD
 **Connection Management**: SignalR handles connection issues smoothly. If a client gets disconnected (like losing Wi-Fi), SignalR will attempt to reconnect automatically without disturbing the user experience.
 
 **Scalability**: It can be used for large applications. SignalR supports scaling out to multiple servers, managing users effectively even in a high-traffic environment.
+
+---
+
+I intend to use implement servers and clients in C# itself for my personal reasons. 
+
+But mostly clients are of Javascript flavours. 
+
