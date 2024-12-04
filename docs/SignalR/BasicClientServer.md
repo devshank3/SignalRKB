@@ -150,10 +150,8 @@ public class Program
 
 Spin up the server and start multiple instances of the console client, You should see the client successfully connect to the server and receive updates about the view count.
 
----
+--- 
 
-### Conclusion
-
-In this tutorial, we set up a basic .NET Core server and a .NET Framework client using SignalR for real-time communication. We covered the server-side setup, client-side setup, and handling connection events. This setup can be extended to build more complex real-time applications.
+So, we set up a basic .NET Core server and a .NET Framework client using SignalR for real-time communication. We covered the server-side setup, client-side setup, and handling connection events.
 
 ---
