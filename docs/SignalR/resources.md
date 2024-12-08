@@ -1,3 +1,10 @@
+---
+layout: page
+title: ""
+permalink: /resources/
+mermaid: true
+---
+
 ## Resources for this knowledge base
 
 - Kevin Griffin's SignalR Mastery course https://signalrmastery.com
