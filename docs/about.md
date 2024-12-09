@@ -4,4 +4,4 @@ title: About
 permalink: /about/
 ---
 
-## About page 123
+## Just a resource hub on SignalR stuff
