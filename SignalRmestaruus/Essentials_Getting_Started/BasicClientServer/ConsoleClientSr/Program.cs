@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.Logging;
 
 namespace ConsoleClientSr
 {
@@ -12,7 +14,20 @@ namespace ConsoleClientSr
         static async Task Main(string[] args)
         {
             HubConnection connection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:7142/accessorHub")
+                .WithUrl("https://localhost:7142/accessorHub", options =>
+                {
+                    //options.Transports = HttpTransportType.WebSockets ;
+                    options.Transports = HttpTransportType.WebSockets | HttpTransportType.ServerSentEvents;
+                })
+                .ConfigureLogging(
+                    logging =>
+                    {
+                        logging.AddConsole(); // This requires Microsoft.Extensions.Logging.Console package
+
+                        // This will set ALL logging to Debug level
+                        logging.SetMinimumLevel(LogLevel.Debug);
+
+                    })
                 .Build();
 
 
