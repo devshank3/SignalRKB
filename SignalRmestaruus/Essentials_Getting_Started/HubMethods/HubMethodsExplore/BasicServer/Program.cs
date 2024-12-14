@@ -23,6 +23,7 @@ namespace BasicServer
             app.UseAuthorization();
 
             app.MapHub<AccessorHub>("/accessorHub");
+            app.MapHub<StringToolsHub>("/stringToolsHub");
 
             app.Run();
         }

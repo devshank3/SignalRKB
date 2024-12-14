@@ -14,7 +14,7 @@ namespace ConsoleClient
         static async Task Main(string[] args)
         {
             HubConnection connection = new HubConnectionBuilder()
-                .WithUrl("https://localhost:7208/accessorHub", options =>
+                .WithUrl("https://localhost:7208/stringToolsHub", options =>
                 {
                     //options.Transports = HttpTransportType.WebSockets ;
                     options.Transports = HttpTransportType.WebSockets | HttpTransportType.ServerSentEvents;
@@ -61,7 +61,7 @@ namespace ConsoleClient
             {
                 connection.StartAsync().Wait();
                 Console.WriteLine("Connection started successfully.");
-                await connection.InvokeAsync("NotifyWatching");
+                await connection.SendAsync("NotifyWatching");
             }
             catch (Exception ex)
             {
@@ -70,7 +70,7 @@ namespace ConsoleClient
 
             while (true)
             {
-                Console.WriteLine("Enter 'r' to get a random string from the server or 'e' to exit:");
+                Console.WriteLine("Enter 'r' to get a random string from the server, 'f' to get full name, or 'e' to exit:");
                 var input = Console.ReadLine();
 
                 switch (input)
@@ -79,6 +79,7 @@ namespace ConsoleClient
                         try
                         {
                             var randomString = await connection.InvokeAsync<string>("GetRandomString");
+
                             Console.WriteLine($"Random string from server: {randomString}");
                         }
                         catch (Exception ex)
@@ -87,12 +88,28 @@ namespace ConsoleClient
                         }
                         break;
 
+                    case "f":
+                        try
+                        {
+                            Console.WriteLine("Enter first name:");
+                            var firstName = Console.ReadLine();
+                            Console.WriteLine("Enter last name:");
+                            var lastName = Console.ReadLine();
+                            var fullName = await connection.InvokeAsync<string>("GetFullName", firstName, lastName);
+                            Console.WriteLine($"Full name from server: {fullName}");
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error calling GetFullName: {ex.Message}");
+                        }
+                        break;
+
                     case "e":
                         Console.WriteLine("Exiting...");
                         return;
 
                     default:
-                        Console.WriteLine("Invalid input. Please enter 'r' or 'e'.");
+                        Console.WriteLine("Invalid input. Please enter 'r', 'f', or 'e'.");
                         break;
                 }
             }
