@@ -1,19 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SignalRConnectionClient
 {
@@ -27,6 +17,7 @@ namespace SignalRConnectionClient
         public MainWindow()
         {
             InitializeComponent();
+            UrlTextBox.Text = "https://localhost:7128/Chat";
         }
 
         private async void ConnectButton_Click(object sender, RoutedEventArgs e)
@@ -43,21 +34,48 @@ namespace SignalRConnectionClient
                 .WithUrl(url, options =>
                 {
                     options.Transports = HttpTransportType.WebSockets | HttpTransportType.ServerSentEvents;
-                }).ConfigureLogging(
-                logging =>
+                })
+                .ConfigureLogging(logging =>
                 {
                     logging.AddDebug();
+                    logging.SetMinimumLevel(LogLevel.Debug);
                 })
                 .Build();
 
+            await StartConnection();
+        }
+
+        private async Task StartConnection()
+        {
             try
             {
                 await connection.StartAsync();
+                connectButton.IsEnabled = false;
+                disconnectButton.IsEnabled = true;
                 MessageBox.Show("Connected to the server.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Connection failed: {ex.Message}");
+            }
+        }
+
+        private async void DisconnectButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (connection != null && connection.State == HubConnectionState.Connected)
+            {
+                await connection.StopAsync();
+                connectButton.IsEnabled = true;
+                disconnectButton.IsEnabled = false;
+                MessageBox.Show("Disconnected from the server.");
+            }
+        }
+
+        private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (connection != null && connection.State == HubConnectionState.Connected)
+            {
+                await connection.StopAsync();
             }
         }
     }
