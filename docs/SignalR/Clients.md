@@ -1,4 +1,8 @@
 ---
+layout: page
+title: ""
+permalink: /Clients/
+mermaid: true
 ---
 
 ### More about clients 

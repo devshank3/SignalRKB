@@ -12,4 +12,6 @@ title: Index
 - [Supported transport types](https://devshank3.github.io/SignalRKB/TransportTypes)
     - [Setting Transport Types in SignalR Connection Builder](https://devshank3.github.io/SignalRKB/ChoosingTransports)
 - [Creating and Calling Hub methods from Clients ](https://devshank3.github.io/SignalRKB/CreatingHubMethods)
+- [SignalR Connections and Contexts](https://devshank3.github.io/SignalRKB/Connection)
+- [More about clients](https://devshank3.github.io/SignalRKB/Clients)
 - [Resources](https://devshank3.github.io/SignalRKB/resources)
