@@ -1,7 +1,7 @@
 title: 📡SignalR Knowledge Base
 description: >- # this means to ignore newlines until "baseurl:"
-  This is my personal page, which is under construction. 
-  I will be posting about my projects, thoughts, and other things that I find interesting. Stay tuned!
+  This is a aggregation page on SignalR topics, which is under construction. 
+  I will be posting about projects, thoughts, and other things that I find interesting on the topic. Stay tuned!
 baseurl: "" # the subpath of your site, e.g. /blog
 locale: en_US
 url: "https://devshank3.github.io" # the base hostname & protocol for your site, e.g. http://example.com
