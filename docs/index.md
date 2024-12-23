@@ -1,7 +1,9 @@
 ---
 layout: page
-title: Index
+title: SignalR resources
 ---
+
+## Resources on SignalR topic and explainer blogs on the topic
 
 ### Contents 
 
