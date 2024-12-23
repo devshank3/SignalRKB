@@ -1,4 +1,8 @@
 ---
+layout: page
+title: ""
+permalink: /AuthIdentity/
+mermaid: true
 ---
 
 WIth ASP.NET Identity we can cruise through Auth stuffs with SignalR 
