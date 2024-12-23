@@ -2,4 +2,19 @@ MessagePack is an efficient binary serialization format. It lets you exchange da
 
 ![](https://msgpack.org/images/intro.png)
 
+Server 
+
 `services.AddSignalR().AddMessagePackProtocol();`
+
+
+Client 
+
+```C#
+using Microsoft.AspNetCore.SignalR.Client;
+using Microsoft.Extensions.DependencyInjection;
+
+var hubConnection = new HubConnectionBuilder()
+                        .WithUrl("/chathub")
+                        .AddMessagePackProtocol()
+                        .Build();
+```
