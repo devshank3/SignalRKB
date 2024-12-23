@@ -1,4 +1,8 @@
 ---
+layout: page
+title: ""
+permalink: /HubLifecycle/
+mermaid: true
 ---
 
 HubLifecycle stuffs 

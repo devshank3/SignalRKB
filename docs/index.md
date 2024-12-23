@@ -12,9 +12,14 @@ title: Index
 - [Supported transport types](https://devshank3.github.io/SignalRKB/TransportTypes)
     - [Setting Transport Types in SignalR Connection Builder](https://devshank3.github.io/SignalRKB/ChoosingTransports)
 - [Creating and Calling Hub methods from Clients ](https://devshank3.github.io/SignalRKB/CreatingHubMethods)
-- [HubContext and Dependency Injection](https://devshank3.github.io/SignalRKB/HubContextDI)
+- More on Hubs
+
+    - [HubContext and Dependency Injection](https://devshank3.github.io/SignalRKB/HubContextDI)
+    - [Hub lifecycle events](https://devshank3.github.io/SignalRKB/HubLifecycle)
+
 - [SignalR Connections and Contexts](https://devshank3.github.io/SignalRKB/Connection)
 - [More about clients](https://devshank3.github.io/SignalRKB/Clients)
 - [Groups](https://devshank3.github.io/SignalRKB/Groups)
 - [Authorization on SignalR Hubs using ASP.NET Identity](https://devshank3.github.io/SignalRKB/AuthIdentity)
+- [MessagePack](https://devshank3.github.io/SignalRKB/MessagePack)
 - [Resources](https://devshank3.github.io/SignalRKB/resources)
