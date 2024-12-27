@@ -10,12 +10,12 @@ MessagePack is an efficient binary serialization format. It lets you exchange da
 
 ![](https://msgpack.org/images/intro.png)
 
-Server 
+Server configuration
 
 `services.AddSignalR().AddMessagePackProtocol();`
 
 
-Client 
+Client configuration
 
 ```C#
 using Microsoft.AspNetCore.SignalR.Client;
