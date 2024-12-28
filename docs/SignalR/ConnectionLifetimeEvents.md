@@ -1,3 +1,10 @@
+---
+layout: page
+title: ""
+permalink: /ConnectionLifetimeEvents/
+mermaid: true
+---
+
 ### Understanding SignalR Connections, Transport Connections, and Physical Connections
 
 In the world of SignalR, connections are categorized into three types: SignalR connections, transport connections, and physical connections. Here's a brief overview of each:
