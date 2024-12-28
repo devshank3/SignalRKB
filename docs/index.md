@@ -20,6 +20,7 @@ title: SignalR resources
     - [Hub lifecycle events](https://devshank3.github.io/SignalRKB/HubLifecycle)
 
 - [SignalR Connections and Contexts](https://devshank3.github.io/SignalRKB/Connection)
+- [Connection Lifetime and Events](https://devshank3.github.io/SignalRKB/ConnectionLifetimeEvents)
 - [More about clients](https://devshank3.github.io/SignalRKB/Clients)
 - [Groups](https://devshank3.github.io/SignalRKB/Groups)
 - [Authorization on SignalR Hubs using ASP.NET Identity](https://devshank3.github.io/SignalRKB/AuthIdentity)
