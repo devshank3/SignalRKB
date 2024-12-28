@@ -17,7 +17,7 @@ In the world of SignalR, connections are categorized into three types: SignalR c
 
 When a SignalR client calls the `Start` method, it provides the necessary information to establish a physical connection to a server. If the transport connection fails, the SignalR connection remains because the client can automatically re-establish a new transport connection using the same SignalR URL without user intervention. The connection ID remains unchanged, reflecting the continuity of the SignalR connection.
 
-### Mermaid Diagram
+Some digrams explaining the connection behavior
 
 ```mermaid
 graph TD
@@ -32,3 +32,23 @@ graph TD
 ```
 
 This diagram illustrates the relationships between the different types of connections in SignalR, showing how they depend on each other and are managed by different APIs.
+
+```mermaid
+sequenceDiagram  
+    participant Server as SignalR connection on Server  
+    participant Physical as Physical connection  
+    participant Transport as WS/SSE/FF transport connection  
+    participant Client as SignalR connection on Client  
+  
+    Server->>Client: OnConnected  
+    loop Physical Connection Interruptions  
+        Physical-->>Transport: Connection Lost  
+        Client->>Client: ConnectionSlow event  
+        Client->>Client: Reconnecting event  
+        Physical-->>Transport: Connection Restored  
+        Client->>Server: OnReconnected  
+        Client->>Client: Reconnected event  
+    end  
+    Client->>Client: Closed event (client calls Stop)  
+    Server->>Client: OnDisconnected  
+```
