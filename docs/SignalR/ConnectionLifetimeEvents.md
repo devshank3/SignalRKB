@@ -21,17 +21,16 @@ Some diagrams explaining the SignalR connection behavior
 
 ```mermaid
 graph TD
-    A[Client] -->|Start Method| B[SignalR Connection]
-    B -->|Uses| C[Transport Connection]
+    B[SignalR Connection]-->|Uses| C[Transport Connection]
     C -->|Depends on| D[Physical Connection]
     D -->|Facilitates| C
     C -->|Maintains| B
     B -->|Managed by| E[SignalR API]
-    C -->|Managed by| F[Transport API]
+    C -->|Managed by| F[Transport API Websockets, SSE, LP, FF]
     D -->|Consists of| G[Network Links]
 ```
 
-This diagram illustrates the relationships between the different types of connections in SignalR, showing how they depend on each other and are managed by different APIs.
+This diagram illustrates the relationships between the different layers facilitating connections in SignalR, showing how they depend on each other and are managed by different APIs.
 
 ---
 
@@ -54,3 +53,5 @@ sequenceDiagram
     Client->>Client: Closed event (client calls Stop)  
     Server->>Client: OnDisconnected  
 ```
+
+---
