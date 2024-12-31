@@ -53,3 +53,4 @@ In this example:
 - `OnConnectedAsync` is overridden to send a welcome message to the client when they connect.
 - `SendMessage` is a hub method that clients can call to send messages to all connected clients.
 - `OnDisconnectedAsync` is overridden to handle any cleanup when a client disconnects.
+- Other Methods
