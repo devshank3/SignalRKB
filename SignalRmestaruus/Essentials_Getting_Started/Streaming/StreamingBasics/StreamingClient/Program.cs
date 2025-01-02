@@ -6,6 +6,8 @@ namespace StreamingClient
 {
     internal class Program
     {
+        public record WeatherData(int temp, int air, DateTime TimeStamp);
+
         static async Task Main(string[] args)
         {
             HubConnection connection = new HubConnectionBuilder()
@@ -20,7 +22,7 @@ namespace StreamingClient
                         logging.AddConsole(); // This requires Microsoft.Extensions.Logging.Console package
 
                         // This will set ALL logging to Debug level
-                        logging.SetMinimumLevel(LogLevel.Debug);
+                        logging.SetMinimumLevel(LogLevel.None);
 
                     })
                 .Build();
@@ -31,8 +33,10 @@ namespace StreamingClient
                 Console.WriteLine("Connection started successfully.");
                 var cancellationTokenSource = new CancellationTokenSource();
 
+                Console.WriteLine("Streaming Numbers, is funnnn!!");
+
                 var stream = connection.StreamAsync<int>(
-                    "GetNumbers", 10, 5000, cancellationTokenSource.Token);
+                    "GetNumbers", 10, 2000, cancellationTokenSource.Token);
 
 
                 await foreach (var count in stream)
@@ -40,7 +44,15 @@ namespace StreamingClient
                     Console.WriteLine($"{count}");
                 }
 
-                Console.WriteLine("Streaming completed");
+                Console.WriteLine("\n\nStreaming weather is less fun !!!!");
+
+                var weatherStream = connection.StreamAsync<WeatherData>(
+                    "GetWeatherData", 10, 2000, cancellationTokenSource.Token);
+
+                await foreach (var weather in weatherStream)
+                {
+                    Console.WriteLine($"Temp: {weather.temp}, Air: {weather.air}, Time: {weather.TimeStamp}");
+                }
             }
             catch (Exception ex)
             {
