@@ -26,4 +26,5 @@ title: SignalR resources
 - [Authorization on SignalR Hubs using ASP.NET Identity](https://devshank3.github.io/SignalRKB/AuthIdentity)
 - [MessagePack](https://devshank3.github.io/SignalRKB/MessagePack)
 - [MessagePack Vs json](https://devshank3.github.io/SignalRKB/MessagePack)
+- [Streaming](https://devshank3.github.io/SignalRKB/Streaming)
 - [Resources](https://devshank3.github.io/SignalRKB/resources)
