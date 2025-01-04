@@ -28,7 +28,7 @@ builder.Logging.AddFilter("Microsoft.AspNetCore.Http.Connections", LogLevel.Debu
 
 ## Client side logging 
 
-We should add `Microsoft.Extensions.Logging.Console` package explicitly for console logging or for any other logging providers. 
+We should add `Microsoft.Extensions.Logging.Console` package explicitly for console logging or install for any other logging providers. 
 
 During the initiation of `HubConnectionBuilder` configure the logs.
 ```C#
