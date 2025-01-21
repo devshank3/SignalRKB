@@ -1,0 +1,65 @@
+﻿@page "/signalr-client"
+
+@using Microsoft.AspNetCore.SignalR.Client
+@inject NavigationManager Navigation
+
+<PageTitle>SignalR Client</PageTitle>
+
+<h1>SignalR Client</h1>
+
+<p role="status">Connection status: <span style="color:@connectionStatusColor">@connectionStatus</span></p>
+<button class="btn btn-primary" @onclick="Connect">Connect</button>
+<button class="btn btn-secondary" @onclick="Disconnect">Disconnect</button>
+
+<div>
+    <span style="color:@connectionStatusColor">●</span>
+</div>
+
+@code {
+    private HubConnection? hubConnection;
+    private string connectionStatus = "Disconnected";
+    private string connectionStatusColor = "red";
+
+    private async Task Connect()
+    {
+        hubConnection = new HubConnectionBuilder()
+            .WithUrl("https://localhost:7085/MainHub")
+            .Build();
+
+        hubConnection.Closed += async (error) =>
+        {
+            connectionStatus = "Disconnected";
+            connectionStatusColor = "red";
+            await Task.Delay(1000);
+            await Connect();
+        };
+
+        hubConnection.On<string>("ReceiveMessage", (message) =>
+        {
+            // Handle incoming messages
+        });
+
+        try
+        {
+            await hubConnection.StartAsync();
+            connectionStatus = "Connected";
+            connectionStatusColor = "green";
+        }
+        catch (Exception ex)
+        {
+            connectionStatus = $"Error: {ex.Message}";
+            connectionStatusColor = "red";
+        }
+    }
+
+    private async Task Disconnect()
+    {
+        if (hubConnection != null)
+        {
+            await hubConnection.StopAsync();
+            await hubConnection.DisposeAsync();
+            connectionStatus = "Disconnected";
+            connectionStatusColor = "red";
+        }
+    }
+}
